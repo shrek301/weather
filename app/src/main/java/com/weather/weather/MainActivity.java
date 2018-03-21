@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
+    emgd,l;fgm,dgkl
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
