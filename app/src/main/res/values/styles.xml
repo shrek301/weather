@@ -1,3 +1,5 @@
+<!--suppress ALL, AndroidDomInspection -->
+
 <resources>
 
     <!-- Base application theme. -->
@@ -15,6 +17,7 @@
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
+    <!--suppress AndroidDomInspection -->
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

@@ -5,7 +5,7 @@
     <string name="change_city">Change city</string>
 
     <!-- Put your own APP ID here -->
-    <string name="open_weather_maps_app_id">11111</string>
+    <string name="open_weather_maps_app_id">479561</string>
 
     <string name="weather_sunny">&#xf00d;</string>
     <string name="weather_clear_night">&#xf02e;</string>

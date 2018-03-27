@@ -1,12 +1,10 @@
 package until;
 
-import android.annotation.TargetApi;
-import android.app.Fragment;
 import android.graphics.Typeface;
 import android.icu.text.DateFormat;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,9 +19,6 @@ import org.json.JSONObject;
 import java.util.Date;
 import java.util.Locale;
 
-/**
- * Created by admin on 22.03.2018.
- */
 public class WeatherFragment extends Fragment {
     Typeface weatherFont;
 
@@ -35,30 +30,30 @@ public class WeatherFragment extends Fragment {
 
     Handler handler;
 
-    public WeatherFragment() {
+    public WeatherFragment(){
         handler = new Handler();
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_weather, container, false);
-        cityField = (TextView) rootView.findViewById(R.id.city_field);
-        updatedField = (TextView) rootView.findViewById(R.id.updated_field);
-        detailsField = (TextView) rootView.findViewById(R.id.details_field);
-        currentTemperatureField = (TextView) rootView.findViewById(R.id.current_temperature_field);
-        weatherIcon = (TextView) rootView.findViewById(R.id.weather_icon);
+        cityField = (TextView)rootView.findViewById(R.id.city_field);
+        updatedField = (TextView)rootView.findViewById(R.id.updated_field);
+        detailsField = (TextView)rootView.findViewById(R.id.details_field);
+        currentTemperatureField = (TextView)rootView.findViewById(R.id.current_temperature_field);
+        weatherIcon = (TextView)rootView.findViewById(R.id.weather_icon);
 
         weatherIcon.setTypeface(weatherFont);
         return rootView;
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        weatherFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/weather.ttf");
+
+        weatherFont = Typeface.createFromAsset(getActivity().getAssets(), "weather.ttf");
+
         updateWeatherData(new CityPreference(getActivity()).getCity());
     }
     private void updateWeatherData(final String city){
@@ -83,7 +78,6 @@ public class WeatherFragment extends Fragment {
             }
         }.start();
     }
-    @TargetApi(Build.VERSION_CODES.N)
     private void renderWeather(JSONObject json){
         try {
             cityField.setText(json.getString("name").toUpperCase(Locale.US) +
@@ -100,8 +94,14 @@ public class WeatherFragment extends Fragment {
             currentTemperatureField.setText(
                     String.format("%.2f", main.getDouble("temp"))+ " ℃");
 
-            DateFormat df = DateFormat.getDateTimeInstance();
-            String updatedOn = df.format(new Date(json.getLong("dt")*1000));
+            DateFormat df = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                df = DateFormat.getDateTimeInstance();
+            }
+            String updatedOn = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                updatedOn = df.format(new Date(json.getLong("dt")*1000));
+            }
             updatedField.setText("Last update: " + updatedOn);
 
             setWeatherIcon(details.getInt("id"),
@@ -112,7 +112,6 @@ public class WeatherFragment extends Fragment {
             Log.e("SimpleWeather", "One or more fields not found in the JSON data");
         }
     }
-
     private void setWeatherIcon(int actualId, long sunrise, long sunset){
         int id = actualId / 100;
         String icon = "";

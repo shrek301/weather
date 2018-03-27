@@ -19,7 +19,7 @@ import com.weather.weather.R;
 public class RemoteFetch {
 
     private static final String OPEN_WEATHER_MAP_API =
-            "http://api.openweathermap.org/data/2.5/weather?q=%s&units=metric";
+            "http://samples.openweathermap.org/data/2.5/weather?id=520473&units=metric&appid=004a10f363c0cf83af33310ee4a06d44";
 
     public static JSONObject getJSON(Context context, String city) {
         try {

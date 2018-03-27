@@ -32,7 +32,7 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="70sp"
+        android:textSize="130sp"
         />
 
     <TextView
@@ -42,7 +42,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="40sp" />
+        android:textSize="80sp" />
 
     <TextView
         android:id="@+id/details_field"
