@@ -4,7 +4,7 @@
     <string name="app_name">Simple Weather</string>
     <string name="change_city">Change city</string>
 
-    <!-- Put your own APP ID here -->
+    <!-- Здесь изменяем ид города который берем с портала -->
     <string name="open_weather_maps_app_id">479561</string>
 
     <string name="weather_sunny">&#xf00d;</string>
@@ -17,6 +17,6 @@
     <string name="weather_thunder">&#xf01e;</string>
     <string name="weather_drizzle">&#xf01c;</string>
 
-    <string name="place_not_found">Sorry, no weather data found.</string>
+    <string name="place_not_found">Погода для вашего города нет. Мы все умрем!</string>
 
 </resources>

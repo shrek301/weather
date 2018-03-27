@@ -9,4 +9,6 @@
         android:title="@string/change_city"
         app:showAsAction="never"/>
 
+    : <!-- не работает 7не хера  почему то спать хочу -->
+
 </menu>

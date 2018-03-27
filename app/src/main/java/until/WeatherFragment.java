@@ -19,6 +19,9 @@ import org.json.JSONObject;
 import java.util.Date;
 import java.util.Locale;
 
+
+//туту распарсиваем полученные данные ...
+
 public class WeatherFragment extends Fragment {
     Typeface weatherFont;
 

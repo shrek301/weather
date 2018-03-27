@@ -13,7 +13,7 @@ import until.WeatherFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-
+// главный класс
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -15,7 +15,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.weather.weather.R;
-
+// парсим по ссылке, на сайте уфы нет возвращает какой то карамультук, для примера нааписал
 public class RemoteFetch {
 
     private static final String OPEN_WEATHER_MAP_API =
@@ -41,8 +41,7 @@ public class RemoteFetch {
 
             JSONObject data = new JSONObject(json.toString());
 
-            // This value will be 404 if the request was not
-            // successful
+            //Если возвращает 404 ошибку
             if (data.getInt("cod") != 200) {
                 return null;
             }
